@@ -7,7 +7,9 @@
 
 using namespace std;
 
+//TODO should this be an Observer?
 class ListView {
+    //TODO define and implement methods
 public:
     explicit ListView(User *user);
 

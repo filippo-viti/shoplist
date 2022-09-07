@@ -9,6 +9,7 @@
 class ShoppingList : public Subject {
 
 public:
+    //TODO implement methods
     void addItem(Item *item);
 
     void removeItem(Item *item);
@@ -20,6 +21,7 @@ public:
     void notify() const override;
 
 private:
+    //TODO decide how to handle checked items
     std::list<Item *> items;
     std::list<Item *> checkedItems;
     std::list<Observer *> observers;

@@ -5,6 +5,7 @@
 #include <string>
 #include "User.h"
 
+//TODO add more categories
 enum Category {
     Dairy,
     Meat,

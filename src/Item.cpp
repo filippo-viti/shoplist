@@ -3,7 +3,7 @@
 Item::Item(const std::string &name, const std::string &description, int quantity, Category category,
            User *addedBy) : name(name), description(description), quantity(quantity), category(category),
                             addedBy((User *) addedBy) {}
-
+//TODO decide if we need to implement destructor
 Item::~Item() {
 }
 
