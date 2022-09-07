@@ -1,13 +1,19 @@
-//
-// Created by filip on 06/09/2022.
-//
-
 #ifndef SHOPLIST_SUBJECT_H
 #define SHOPLIST_SUBJECT_H
 
 
-class Subject {
+#include "Observer.h"
 
+class Subject {
+protected:
+    virtual ~Subject() = default;
+
+public:
+    virtual void subscribe(Observer *o) = 0;
+
+    virtual void unsubscribe(Observer *o) = 0;
+
+    virtual void notify() const = 0;
 };
 
 
