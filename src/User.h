@@ -6,7 +6,7 @@
 #include "Observer.h"
 #include "ShoppingList.h"
 
-//TODO should the view be the subject instead?
+//TODO should the view be the observer instead?
 class User : public Observer {
 public:
     void update() override;
