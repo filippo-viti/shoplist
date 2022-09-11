@@ -15,13 +15,14 @@ enum Category {
     Fruit,
     Cleaning,
     Electronics,
-    Stationery
+    Stationery,
+    Other
 };
 
 class Item {
 
 public:
-    Item();
+    Item(User *ab);
 
     Item(const string &n, const string &d, unsigned int q, Category c, User *ab);
 
@@ -30,6 +31,8 @@ public:
     Item(const string &n, const string &d, Category c, User *ab);
 
     Item(const string &n, unsigned int q, Category c, User *ab);
+
+    virtual ~Item();
 
     const string &getName() const;
 
@@ -55,13 +58,11 @@ public:
 
     void setBought(bool bought);
 
-    virtual ~Item();
-
 private:
     string name;
     string description;
     unsigned int quantity = 1;
-    Category category;
+    Category category = Category::Other;
     User *addedBy;
     bool bought = false;
 };

@@ -1,9 +1,7 @@
 
 #include "Item.h"
 
-Item::Item() {
-
-}
+Item::Item(User *ab) : addedBy(ab) {}
 
 Item::Item(const string &n, const string &d, unsigned int q, Category c, User *ab) :
         name(n), description(d), quantity(q), category(c), addedBy(ab) {}
