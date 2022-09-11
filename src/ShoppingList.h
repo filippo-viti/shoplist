@@ -6,13 +6,21 @@
 #include "Item.h"
 #include "Subject.h"
 
+using namespace std;
+
 class ShoppingList : public Subject {
 
 public:
     //TODO implement methods
+    ShoppingList();
+
+    virtual ~ShoppingList();
+
     void addItem(Item *item);
 
     void removeItem(Item *item);
+
+    void checkItem(Item *item);
 
     void subscribe(Observer *o) override;
 
@@ -21,10 +29,9 @@ public:
     void notify() const override;
 
 private:
-    //TODO decide how to handle checked items
-    std::list<Item *> items;
-    std::list<Item *> checkedItems;
-    std::list<Observer *> observers;
+    list<Item *> items;
+    int missingItems;
+    list<Observer *> observers;
     User *owner;
 };
 
