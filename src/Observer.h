@@ -3,10 +3,9 @@
 
 
 class Observer {
-protected:
+public:
     virtual ~Observer() = default;
 
-public:
     virtual void update() = 0;
 
     virtual void attach() = 0;
