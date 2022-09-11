@@ -44,9 +44,8 @@ void ShoppingList::unsubscribe(Observer *o) {
     observers.remove(o);
 }
 
-//TODO decide how updating should work
 void ShoppingList::notify() const {
-    for (Observer *o: observers) {
+    for (auto o: observers) {
         o->update();
     }
 }
