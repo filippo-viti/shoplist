@@ -6,6 +6,8 @@
 #include "Observer.h"
 #include "ShoppingList.h"
 
+class ShoppingList;
+
 using namespace std;
 
 class User : public Observer {

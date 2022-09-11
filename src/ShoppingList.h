@@ -6,6 +6,11 @@
 #include "Item.h"
 #include "Subject.h"
 
+// FIXME pre-declaration of classes to avoid circular dependency. Is there a better way to do this?
+class User;
+
+class Item;
+
 using namespace std;
 
 class ShoppingList : public Subject {

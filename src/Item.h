@@ -5,6 +5,8 @@
 #include <string>
 #include "User.h"
 
+class User;
+
 using namespace std;
 
 //TODO add more categories
