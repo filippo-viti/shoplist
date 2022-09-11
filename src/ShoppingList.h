@@ -11,8 +11,7 @@ using namespace std;
 class ShoppingList : public Subject {
 
 public:
-    //TODO implement methods
-    ShoppingList();
+    ShoppingList(User *o);
 
     virtual ~ShoppingList();
 
@@ -22,6 +21,16 @@ public:
 
     void checkItem(Item *item);
 
+    unsigned int getBoughtTotal();
+
+    unsigned int getMissingItems() const;
+
+    void setMissingItems(unsigned int missingItems);
+
+    User *getOwner() const;
+
+    void setOwner(User *owner);
+
     void subscribe(Observer *o) override;
 
     void unsubscribe(Observer *o) override;
@@ -29,8 +38,9 @@ public:
     void notify() const override;
 
 private:
+    //TODO should we use vector instead?
     list<Item *> items;
-    int missingItems;
+    unsigned int missingItems = 0;
     list<Observer *> observers;
     User *owner;
 };
