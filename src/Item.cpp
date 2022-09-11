@@ -54,3 +54,11 @@ bool Item::operator==(const Item &rhs) const {
 bool Item::operator!=(const Item &rhs) const {
     return !(rhs == *this);
 }
+
+bool Item::isBought() const {
+    return bought;
+}
+
+void Item::setBought(bool bought) {
+    Item::bought = bought;
+}

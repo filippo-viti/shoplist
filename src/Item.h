@@ -43,6 +43,10 @@ public:
 
     void setAddedBy(const User &addedBy);
 
+    bool isBought() const;
+
+    void setBought(bool bought);
+
     bool operator==(const Item &rhs) const;
 
     bool operator!=(const Item &rhs) const;
@@ -53,6 +57,7 @@ private:
     int quantity;
     Category category;
     User *addedBy;
+    bool bought;
 
 };
 
