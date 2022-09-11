@@ -6,9 +6,14 @@
 #include "Observer.h"
 #include "ShoppingList.h"
 
-//TODO should the view be the subject instead?
+using namespace std;
+
 class User : public Observer {
 public:
+    User(const string &username);
+
+    virtual ~User();
+
     void update() override;
 
     void attach() override;
@@ -17,7 +22,7 @@ public:
 
 private:
     //TODO maybe add more informations about the user
-    std::string username;
+    string username;
     list<ShoppingList *> subjects;
 };
 
