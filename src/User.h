@@ -14,6 +14,8 @@ class User : public Observer {
 public:
     User(const string &username);
 
+    ~User() override;
+
     const string &getUsername() const;
 
     void setUsername(const string &username);

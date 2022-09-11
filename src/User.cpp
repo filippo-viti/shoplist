@@ -2,6 +2,10 @@
 
 User::User(const string &username) : username(username) {}
 
+User::~User() {
+    //TODO unsubscribe from every subject
+}
+
 const string &User::getUsername() const {
     return username;
 }
