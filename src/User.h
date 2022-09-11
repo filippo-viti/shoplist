@@ -12,7 +12,9 @@ class User : public Observer {
 public:
     User(const string &username);
 
-    virtual ~User();
+    const string &getUsername() const;
+
+    void setUsername(const string &username);
 
     void update() override;
 
