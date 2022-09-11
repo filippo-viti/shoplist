@@ -1,6 +1,6 @@
 #include "ShoppingList.h"
 
-ShoppingList::ShoppingList(User *o) : owner(o) {}
+ShoppingList::ShoppingList(const string &n, User *o) : name(n), owner(o) {}
 
 ShoppingList::~ShoppingList() = default;
 
@@ -15,6 +15,15 @@ void ShoppingList::removeItem(Item *item) {
 void ShoppingList::checkItem(Item *item) {
     //TODO implement method
 }
+
+const string &ShoppingList::getName() const {
+    return name;
+}
+
+void ShoppingList::setName(const string &name) {
+    ShoppingList::name = name;
+}
+
 
 unsigned int ShoppingList::getBoughtTotal() {
     return items.size() - missingItems;
