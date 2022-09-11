@@ -1,33 +1,44 @@
+
 #include "Item.h"
 
-Item::Item(const std::string &name, const std::string &description, int quantity, Category category,
-           User *addedBy) : name(name), description(description), quantity(quantity), category(category),
-                            addedBy((User *) addedBy) {}
-//TODO decide if we need to implement destructor
-Item::~Item() {
+Item::Item() {
+
 }
 
-const std::string &Item::getName() const {
+Item::Item(const string &n, const string &d, unsigned int q, Category c, User *ab) :
+        name(n), description(d), quantity(q), category(c), addedBy(ab) {}
+
+Item::Item(const string &n, Category c, User *ab) : Item(n, "", 1, c, ab) {}
+
+Item::Item(const string &n, const string &d, Category c, User *ab) : Item(n, d, 1, c, ab) {}
+
+Item::Item(const string &n, unsigned int q, Category c, User *ab) : Item(n, "", q, c, ab) {}
+
+Item::~Item() {
+
+}
+
+const string &Item::getName() const {
     return name;
 }
 
-void Item::setName(const std::string &name) {
+void Item::setName(const string &name) {
     Item::name = name;
 }
 
-const std::string &Item::getDescription() const {
+const string &Item::getDescription() const {
     return description;
 }
 
-void Item::setDescription(const std::string &description) {
+void Item::setDescription(const string &description) {
     Item::description = description;
 }
 
-int Item::getQuantity() const {
+unsigned int Item::getQuantity() const {
     return quantity;
 }
 
-void Item::setQuantity(int quantity) {
+void Item::setQuantity(unsigned int quantity) {
     Item::quantity = quantity;
 }
 
@@ -39,20 +50,12 @@ void Item::setCategory(Category category) {
     Item::category = category;
 }
 
-const User &Item::getAddedBy() const {
+User *Item::getAddedBy() const {
     return addedBy;
 }
 
-void Item::setAddedBy(const User &addedBy) {
+void Item::setAddedBy(User *addedBy) {
     Item::addedBy = addedBy;
-}
-
-bool Item::operator==(const Item &rhs) const {
-    return name == rhs.name;
-}
-
-bool Item::operator!=(const Item &rhs) const {
-    return !(rhs == *this);
 }
 
 bool Item::isBought() const {

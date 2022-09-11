@@ -5,6 +5,8 @@
 #include <string>
 #include "User.h"
 
+using namespace std;
+
 //TODO add more categories
 enum Category {
     Dairy,
@@ -19,46 +21,49 @@ enum Category {
 class Item {
 
 public:
-    Item(const std::string &name, const std::string &description, int quantity, Category category, User *addedBy);
+    Item();
 
-    virtual ~Item();
+    Item(const string &n, const string &d, unsigned int q, Category c, User *ab);
 
-    const std::string &getName() const;
+    Item(const string &n, Category c, User *ab);
 
-    void setName(const std::string &name);
+    Item(const string &n, const string &d, Category c, User *ab);
 
-    const std::string &getDescription() const;
+    Item(const string &n, unsigned int q, Category c, User *ab);
 
-    void setDescription(const std::string &description);
+    const string &getName() const;
 
-    int getQuantity() const;
+    void setName(const string &name);
 
-    void setQuantity(int quantity);
+    const string &getDescription() const;
+
+    void setDescription(const string &description);
+
+    unsigned int getQuantity() const;
+
+    void setQuantity(unsigned int quantity);
 
     Category getCategory() const;
 
     void setCategory(Category category);
 
-    const User &getAddedBy() const;
+    User *getAddedBy() const;
 
-    void setAddedBy(const User &addedBy);
+    void setAddedBy(User *addedBy);
 
     bool isBought() const;
 
     void setBought(bool bought);
 
-    bool operator==(const Item &rhs) const;
-
-    bool operator!=(const Item &rhs) const;
+    virtual ~Item();
 
 private:
-    std::string name;
-    std::string description;
-    int quantity;
+    string name;
+    string description;
+    unsigned int quantity = 1;
     Category category;
     User *addedBy;
-    bool bought;
-
+    bool bought = false;
 };
 
 
