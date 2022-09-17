@@ -8,9 +8,9 @@ class Subject {
 public:
     virtual ~Subject() = default;
 
-    virtual void subscribe(Observer *o) = 0;
+    virtual void attach(Observer *o) = 0;
 
-    virtual void unsubscribe(Observer *o) = 0;
+    virtual void detach(Observer *o) = 0;
 
     virtual void notify() const = 0;
 };
