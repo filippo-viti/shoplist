@@ -3,7 +3,7 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <libraryRoots>
-      <file path="$PROJECT_DIR$/Google_tests" />
+      <file path="$PROJECT_DIR$/Google_tests/lib" />
     </libraryRoots>
   </component>
 </project>
