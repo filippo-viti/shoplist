@@ -8,6 +8,8 @@
 
 class User;
 
+class Item;
+
 using namespace std;
 
 class ShoppingList : public Subject {
