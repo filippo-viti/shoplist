@@ -10,7 +10,7 @@ class User;
 using namespace std;
 
 //TODO add more categories
-class enum Category {
+enum class Category {
     Dairy,
     Meat,
     Vegetables,
