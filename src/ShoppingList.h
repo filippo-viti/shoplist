@@ -3,45 +3,22 @@
 
 
 #include <list>
+#include <unordered_set>
+#include <memory>
 #include "Item.h"
 #include "Subject.h"
-
-class User;
+#include "User.h"
 
 class Item;
+
+class User;
 
 using namespace std;
 
 class ShoppingList : public Subject {
 
 public:
-    ShoppingList(const string &n, User *o);
-
-    virtual ~ShoppingList();
-
-    const list<Item *> &getItems() const;
-
-    void addItem(Item *item);
-
-    void removeItem(Item *item);
-
-    void checkItem(Item *item);
-
-    const string &getName() const;
-
-    void setName(const string &name);
-
-    int getBoughtTotal();
-
-    int getMissingItems() const;
-
-    int getTotalItems() const;
-
-    void setMissingItems(unsigned int missingItems);
-
-    User *getOwner() const;
-
-    void setOwner(User *owner);
+    ShoppingList(const string &name, const User &creator);
 
     void attach(Observer *o) override;
 
@@ -49,13 +26,34 @@ public:
 
     void notify() const override;
 
+    const string &getName() const;
+
+    void setName(const string &name);
+
+    const list <Item> &getItems() const;
+
+    int getBoughtItemsQuantity() const;
+
+    const unordered_set<shared_ptr<User>> &getCollaborators() const;
+
+    void addItem(const Item &newItem);
+
+    void removeItem(const string &name);  //TODO decide parameter type
+
+    void checkItem(const string &name); //TODO decide parameter type
+
+    list<Item>::iterator getItem(const string &name);
+
+    int getTotalItems() const;
+
+    void addCollaborator(const User &user);
+
 private:
-    //TODO should we use vector instead?
     string name;
-    list<Item *> items;
-    int missingItems = 0;
+    list <Item> items;
+    int boughtItemsQuantity = 0;
     list<Observer *> observers;
-    User *owner;
+    unordered_set<shared_ptr<User>> collaborators;
 };
 
 

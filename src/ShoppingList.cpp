@@ -1,48 +1,8 @@
+#include <algorithm>
 #include "ShoppingList.h"
 
-ShoppingList::ShoppingList(const string &n, User *o) : name(n), owner(o) {}
-
-ShoppingList::~ShoppingList() = default;
-
-void ShoppingList::addItem(Item *item) {
-    items.push_back(item);
-}
-
-void ShoppingList::removeItem(Item *item) {
-    items.remove(item);
-}
-
-void ShoppingList::checkItem(Item *item) {
-    //TODO implement method
-}
-
-const string &ShoppingList::getName() const {
-    return name;
-}
-
-void ShoppingList::setName(const string &name) {
-    ShoppingList::name = name;
-}
-
-
-int ShoppingList::getBoughtTotal() {
-    return items.size() - missingItems;
-}
-
-int ShoppingList::getMissingItems() const {
-    return missingItems;
-}
-
-void ShoppingList::setMissingItems(unsigned int missingItems) {
-    ShoppingList::missingItems = (int) missingItems;
-}
-
-User *ShoppingList::getOwner() const {
-    return owner;
-}
-
-void ShoppingList::setOwner(User *owner) {
-    ShoppingList::owner = owner;
+ShoppingList::ShoppingList(const string &name, const User &creator) : name(name) {
+    collaborators.insert(make_shared<User>(creator));
 }
 
 void ShoppingList::attach(Observer *o) {
@@ -59,10 +19,54 @@ void ShoppingList::notify() const {
     }
 }
 
+const string &ShoppingList::getName() const {
+    return name;
+}
+
+void ShoppingList::setName(const string &name) {
+    ShoppingList::name = name;
+}
+
+const list<Item> &ShoppingList::getItems() const {
+    return items;
+}
+
+int ShoppingList::getBoughtItemsQuantity() const {
+    return boughtItemsQuantity;
+}
+
+const unordered_set<shared_ptr<User>> &ShoppingList::getCollaborators() const {
+    return collaborators;
+}
+
+void ShoppingList::addItem(const Item &newItem) {
+    // TODO find a way to handle duplicate entries
+    items.push_back(newItem);
+    notify();
+}
+
+void ShoppingList::removeItem(const string &name) {
+    auto item = getItem(name);
+    if (item->isBought()) {
+        boughtItemsQuantity--;
+    }
+    items.erase(item);
+}
+
+void ShoppingList::checkItem(const string &name) {
+    auto item = getItem(name);
+    item->setBought(true);
+    boughtItemsQuantity++;
+}
+
+list<Item>::iterator ShoppingList::getItem(const string &name) {
+    return find_if(items.begin(), items.end(), [name](const Item &i) { return name == i.getName(); });
+}
+
 int ShoppingList::getTotalItems() const {
     return int(items.size());
 }
 
-const list<Item *> &ShoppingList::getItems() const {
-    return items;
+void ShoppingList::addCollaborator(const User &user) {
+    collaborators.insert(make_shared<User>(user));
 }
