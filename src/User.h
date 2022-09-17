@@ -13,8 +13,6 @@ class User {
 public:
     explicit User(const string &username);
 
-    ~User();
-
     const string &getUsername() const;
 
     void setUsername(const string &username);

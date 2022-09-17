@@ -2,10 +2,6 @@
 
 User::User(const string &username) : username(username) {}
 
-User::~User() {
-
-}
-
 const string &User::getUsername() const {
     return username;
 }
