@@ -24,7 +24,6 @@ enum class Category {
 class Item {
 
 public:
-    Item(User *ab);
 
     Item(const string &n, const string &d, unsigned int q, Category c, User *ab);
 
@@ -33,8 +32,6 @@ public:
     Item(const string &n, const string &d, Category c, User *ab);
 
     Item(const string &n, unsigned int q, Category c, User *ab);
-
-    ~Item();
 
     const string &getName() const;
 
