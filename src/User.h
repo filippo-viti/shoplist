@@ -3,33 +3,25 @@
 
 
 #include <string>
-#include "Observer.h"
 #include "ShoppingList.h"
 
 class ShoppingList;
 
 using namespace std;
 
-class User : public Observer {
+class User {
 public:
-    User(const string &username);
+    explicit User(const string &username);
 
-    ~User() override;
+    ~User();
 
     const string &getUsername() const;
 
     void setUsername(const string &username);
 
-    void update() override;
-
-    void attach() override;
-
-    void detach() override;
-
 private:
-    //TODO maybe add more informations about the user
+    //TODO maybe add more information about the user
     string username;
-    list<ShoppingList *> subjects;
 };
 
 
