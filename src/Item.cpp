@@ -1,14 +1,14 @@
 
 #include "Item.h"
 
-Item::Item(const string &n, const string &d, unsigned int q, Category c, User *ab) :
-        name(n), description(d), quantity(q), category(c), addedBy(ab) {}
+Item::Item(const string &n, const string &d, unsigned int q, Category c) :
+        name(n), notes(d), quantity(q), category(c) {}
 
-Item::Item(const string &n, Category c, User *ab) : Item(n, "", 1, c, ab) {}
+Item::Item(const string &n, Category c) : Item(n, "", 1, c) {}
 
-Item::Item(const string &n, const string &d, Category c, User *ab) : Item(n, d, 1, c, ab) {}
+Item::Item(const string &n, const string &d, Category c) : Item(n, d, 1, c) {}
 
-Item::Item(const string &n, unsigned int q, Category c, User *ab) : Item(n, "", q, c, ab) {}
+Item::Item(const string &n, unsigned int q, Category c) : Item(n, "", q, c) {}
 
 const string &Item::getName() const {
     return name;
@@ -18,12 +18,12 @@ void Item::setName(const string &name) {
     Item::name = name;
 }
 
-const string &Item::getDescription() const {
-    return description;
+const string &Item::getNotes() const {
+    return notes;
 }
 
-void Item::setDescription(const string &description) {
-    Item::description = description;
+void Item::setNotes(const string &description) {
+    Item::notes = description;
 }
 
 unsigned int Item::getQuantity() const {
@@ -40,14 +40,6 @@ Category Item::getCategory() const {
 
 void Item::setCategory(Category category) {
     Item::category = category;
-}
-
-User *Item::getAddedBy() const {
-    return addedBy;
-}
-
-void Item::setAddedBy(User *addedBy) {
-    Item::addedBy = addedBy;
 }
 
 bool Item::isBought() const {

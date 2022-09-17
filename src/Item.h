@@ -9,7 +9,7 @@ class User;
 
 using namespace std;
 
-//TODO add more categories
+//TODO should maybe be a string to support custom categories
 enum class Category {
     Dairy,
     Meat,
@@ -25,21 +25,21 @@ class Item {
 
 public:
 
-    Item(const string &n, const string &d, unsigned int q, Category c, User *ab);
+    Item(const string &n, const string &d, unsigned int q, Category c);
 
-    Item(const string &n, Category c, User *ab);
+    Item(const string &n, Category c);
 
-    Item(const string &n, const string &d, Category c, User *ab);
+    Item(const string &n, const string &d, Category c);
 
-    Item(const string &n, unsigned int q, Category c, User *ab);
+    Item(const string &n, unsigned int q, Category c);
 
     const string &getName() const;
 
     void setName(const string &name);
 
-    const string &getDescription() const;
+    const string &getNotes() const;
 
-    void setDescription(const string &description);
+    void setNotes(const string &description);
 
     unsigned int getQuantity() const;
 
@@ -49,20 +49,15 @@ public:
 
     void setCategory(Category category);
 
-    User *getAddedBy() const;
-
-    void setAddedBy(User *addedBy);
-
     bool isBought() const;
 
     void setBought(bool bought);
 
 private:
     string name;
-    string description;
+    string notes;
     unsigned int quantity = 1;
     Category category = Category::Other;
-    User *addedBy;
     bool bought = false;
 };
 
