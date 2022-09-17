@@ -5,7 +5,9 @@
 #include <iostream>
 #include "ShoppingListViewer.h"
 
-ShoppingListViewer::ShoppingListViewer(const shared_ptr<ShoppingList> &subject) : subject(subject) {}
+ShoppingListViewer::ShoppingListViewer(const shared_ptr<ShoppingList> &subject) : subject(subject) {
+    subject->attach(this);
+}
 
 ShoppingListViewer::~ShoppingListViewer() {
     subject->detach(this);
