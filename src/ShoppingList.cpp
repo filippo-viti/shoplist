@@ -25,16 +25,16 @@ void ShoppingList::setName(const string &name) {
 }
 
 
-unsigned int ShoppingList::getBoughtTotal() {
+int ShoppingList::getBoughtTotal() {
     return items.size() - missingItems;
 }
 
-unsigned int ShoppingList::getMissingItems() const {
+int ShoppingList::getMissingItems() const {
     return missingItems;
 }
 
 void ShoppingList::setMissingItems(unsigned int missingItems) {
-    ShoppingList::missingItems = missingItems;
+    ShoppingList::missingItems = (int) missingItems;
 }
 
 User *ShoppingList::getOwner() const {
@@ -57,4 +57,8 @@ void ShoppingList::notify() const {
     for (auto o: observers) {
         o->update();
     }
+}
+
+int ShoppingList::getTotalItems() const {
+    return int(items.size());
 }

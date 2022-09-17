@@ -29,9 +29,11 @@ public:
 
     void setName(const string &name);
 
-    unsigned int getBoughtTotal();
+    int getBoughtTotal();
 
-    unsigned int getMissingItems() const;
+    int getMissingItems() const;
+
+    int getTotalItems() const;
 
     void setMissingItems(unsigned int missingItems);
 
@@ -49,7 +51,7 @@ private:
     //TODO should we use vector instead?
     string name;
     list<Item *> items;
-    unsigned int missingItems = 0;
+    int missingItems = 0;
     list<Observer *> observers;
     User *owner;
 };
