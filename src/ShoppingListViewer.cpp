@@ -16,7 +16,7 @@ ShoppingListViewer::~ShoppingListViewer() {
 
 void ShoppingListViewer::update() {
     auto items = subject->getItems();
-    for (auto item: items) {
-        cout << item->getName();    //TODO print it prettier
+    for (auto &item: items) {
+        cout << item.getName();    //TODO print it prettier
     }
 }
