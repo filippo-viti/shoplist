@@ -19,6 +19,8 @@ public:
 
     virtual ~ShoppingList();
 
+    const list<Item *> &getItems() const;
+
     void addItem(Item *item);
 
     void removeItem(Item *item);

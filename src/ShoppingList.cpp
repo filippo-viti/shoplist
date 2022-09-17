@@ -62,3 +62,7 @@ void ShoppingList::notify() const {
 int ShoppingList::getTotalItems() const {
     return int(items.size());
 }
+
+const list<Item *> &ShoppingList::getItems() const {
+    return items;
+}
