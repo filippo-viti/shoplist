@@ -10,7 +10,7 @@ class User;
 using namespace std;
 
 //TODO add more categories
-enum Category {
+class enum Category {
     Dairy,
     Meat,
     Vegetables,
@@ -34,7 +34,7 @@ public:
 
     Item(const string &n, unsigned int q, Category c, User *ab);
 
-    virtual ~Item();
+    ~Item();
 
     const string &getName() const;
 
