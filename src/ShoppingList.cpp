@@ -45,11 +45,11 @@ void ShoppingList::setOwner(User *owner) {
     ShoppingList::owner = owner;
 }
 
-void ShoppingList::subscribe(Observer *o) {
+void ShoppingList::attach(Observer *o) {
     observers.push_back(o);
 }
 
-void ShoppingList::unsubscribe(Observer *o) {
+void ShoppingList::detach(Observer *o) {
     observers.remove(o);
 }
 

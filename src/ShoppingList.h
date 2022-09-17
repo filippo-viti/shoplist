@@ -39,9 +39,9 @@ public:
 
     void setOwner(User *owner);
 
-    void subscribe(Observer *o) override;
+    void attach(Observer *o) override;
 
-    void unsubscribe(Observer *o) override;
+    void detach(Observer *o) override;
 
     void notify() const override;
 
