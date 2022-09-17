@@ -30,7 +30,7 @@ public:
 
     void setName(const string &name);
 
-    const list <Item> &getItems() const;
+    const list<Item> &getItems() const;
 
     int getBoughtItemsQuantity() const;
 
@@ -50,7 +50,7 @@ public:
 
 private:
     string name;
-    list <Item> items;
+    list<Item> items;
     int boughtItemsQuantity = 0;
     list<Observer *> observers;
     unordered_set<shared_ptr<User>> collaborators;
