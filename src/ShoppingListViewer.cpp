@@ -7,6 +7,11 @@
 
 ShoppingListViewer::ShoppingListViewer(const shared_ptr<ShoppingList> &subject) : subject(subject) {}
 
+ShoppingListViewer::~ShoppingListViewer() {
+    subject->detach(this);
+}
+
+
 void ShoppingListViewer::update() {
     auto items = subject->getItems();
     for (auto item: items) {

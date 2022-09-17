@@ -14,7 +14,7 @@ class MissingItemsBadge : public Observer {
 public:
     explicit MissingItemsBadge(const shared_ptr<ShoppingList> &subject);
 
-    ~MissingItemsBadge() override = default;
+    ~MissingItemsBadge() override;
 
     void update() override;
 

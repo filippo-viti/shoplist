@@ -14,7 +14,7 @@ class ShoppingListViewer : public Observer {
 public:
     explicit ShoppingListViewer(const shared_ptr<ShoppingList> &subject);
 
-    ~ShoppingListViewer() override = default;
+    ~ShoppingListViewer() override;
 
     void update() override;
 
