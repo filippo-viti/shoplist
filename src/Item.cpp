@@ -49,3 +49,9 @@ bool Item::isBought() const {
 void Item::setBought(bool bought) {
     Item::bought = bought;
 }
+
+ostream &operator<<(ostream &os, const Item &item) {
+    os << "name: " << item.name << " notes: " << item.notes << " quantity: " << item.quantity << " category: "
+       << item.category << " bought: " << (item.bought ? "X" : "O");
+    return os;
+}

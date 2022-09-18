@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <ostream>
 #include "User.h"
 
 class User;
@@ -41,6 +42,8 @@ public:
     bool isBought() const;
 
     void setBought(bool bought);
+
+    friend ostream &operator<<(ostream &os, const Item &item);
 
 private:
     string name;
