@@ -47,6 +47,10 @@ void ShoppingList::addItem(const Item &newItem) {
 
 void ShoppingList::removeItem(const string &name) {
     auto item = getItem(name);
+    removeItem(item);
+}
+
+void ShoppingList::removeItem(list<Item>::iterator &item) {
     if (item->isBought()) {
         boughtItemsQuantity--;
     }
@@ -55,8 +59,23 @@ void ShoppingList::removeItem(const string &name) {
 
 void ShoppingList::checkItem(const string &name) {
     auto item = getItem(name);
+    checkItem(item);
+}
+
+
+void ShoppingList::checkItem(list<Item>::iterator &item) {
     item->setBought(true);
     boughtItemsQuantity++;
+}
+
+void ShoppingList::uncheckItem(const string &name) {
+    auto item = getItem(name);
+    uncheckItem(item);
+}
+
+void ShoppingList::uncheckItem(list<Item>::iterator &item) {
+    item->setBought(false);
+    boughtItemsQuantity--;
 }
 
 list<Item>::iterator ShoppingList::getItem(const string &name) {

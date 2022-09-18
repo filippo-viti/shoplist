@@ -30,7 +30,7 @@ public:
 
     void setName(const string &name);
 
-    const list<Item> &getItems() const;
+    const list <Item> &getItems() const;
 
     int getBoughtItemsQuantity() const;
 
@@ -38,9 +38,17 @@ public:
 
     void addItem(const Item &newItem);
 
-    void removeItem(const string &name);  //TODO decide parameter type
+    void removeItem(const string &name);
 
-    void checkItem(const string &name); //TODO decide parameter type
+    void removeItem(list<Item>::iterator &item);
+
+    void checkItem(const string &name);
+
+    void checkItem(list<Item>::iterator &item);
+
+    void uncheckItem(const string &name);
+
+    void uncheckItem(list<Item>::iterator &item);
 
     list<Item>::iterator getItem(const string &name);
 
@@ -50,7 +58,7 @@ public:
 
 private:
     string name;
-    list<Item> items;
+    list <Item> items;
     int boughtItemsQuantity = 0;
     list<Observer *> observers;
     unordered_set<shared_ptr<User>> collaborators;
