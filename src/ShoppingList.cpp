@@ -5,6 +5,8 @@ ShoppingList::ShoppingList(const std::string &name, const User &creator) : name(
     collaborators.insert(std::make_shared<User>(creator));
 }
 
+ShoppingList::ShoppingList() = default;
+
 void ShoppingList::attach(Observer *o) {
     observers.push_back(o);
 }

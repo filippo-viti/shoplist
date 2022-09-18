@@ -16,6 +16,8 @@ class User;
 class ShoppingList : public Subject {
 
 public:
+    ShoppingList();
+
     ShoppingList(const std::string &name, const User &creator);
 
     void attach(Observer *o) override;
