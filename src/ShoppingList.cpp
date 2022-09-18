@@ -40,8 +40,12 @@ const unordered_set<shared_ptr<User>> &ShoppingList::getCollaborators() const {
 }
 
 void ShoppingList::addItem(const Item &newItem) {
-    // TODO find a way to handle duplicate entries
-    items.push_back(newItem);
+    auto itemInList = getItem(newItem.getName());
+    if (itemInList == items.end()) {
+        items.push_back(newItem);
+    } else {
+        itemInList->setQuantity(itemInList->getQuantity() + newItem.getQuantity());
+    }
     notify();
 }
 
