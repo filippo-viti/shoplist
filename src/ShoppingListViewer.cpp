@@ -14,13 +14,17 @@ ShoppingListViewer::~ShoppingListViewer() {
 }
 
 void ShoppingListViewer::update() {
-    //TODO avoid getting the entire list (maybe create a list of item observers)
     auto items = subject->getItems();
     display(items);
 }
 
 void ShoppingListViewer::display(const list<Item> &items) const {
     cout << subject->getName() << ' ' << subject->getTotalBought() << '/' << subject->getTotalItems() << endl;
+    cout << "Users: ";
+    for (const auto &user: subject->getCollaborators()) {
+        cout << user->getUsername() << ' ';
+    }
+    cout << endl;
     for (auto &item: items) {
         cout << '\t' << item << endl;
     }
