@@ -20,6 +20,8 @@ public:
 
 private:
     shared_ptr<ShoppingList> subject;
+
+    void display(list <Item> &items) const;
 };
 
 

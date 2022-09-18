@@ -13,10 +13,15 @@ ShoppingListViewer::~ShoppingListViewer() {
     subject->detach(this);
 }
 
-
 void ShoppingListViewer::update() {
+    //TODO avoid getting the entire list (maybe create a list of item observers)
     auto items = subject->getItems();
+    display(items);
+}
+
+void ShoppingListViewer::display(list<Item> &items) const {
+    cout << subject->getName() << ' ' << subject->getTotalBought() << '/' << subject->getTotalItems() << endl;
     for (auto &item: items) {
-        cout << item.getName();    //TODO print it prettier
+        cout << '\t' << item << endl;
     }
 }
