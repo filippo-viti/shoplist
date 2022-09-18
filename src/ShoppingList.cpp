@@ -55,10 +55,12 @@ void ShoppingList::removeItem(const string &name) {
 }
 
 void ShoppingList::removeItem(list<Item>::iterator &item) {
-    if (item->isBought()) {
-        boughtItemsQuantity--;
-    }
-    items.erase(item);
+    if (item != items.end()) {  // erase() has undefined behavior when called on end()
+        if (item->isBought()) {
+            boughtItemsQuantity--;
+        }
+        items.erase(item);
+    }   //TODO maybe throw exception?
 }
 
 void ShoppingList::checkItem(const string &name) {
@@ -68,8 +70,10 @@ void ShoppingList::checkItem(const string &name) {
 
 
 void ShoppingList::checkItem(list<Item>::iterator &item) {
-    item->setBought(true);
-    boughtItemsQuantity++;
+    if (item != items.end()) {
+        item->setBought(true);
+        boughtItemsQuantity++;
+    }
 }
 
 void ShoppingList::uncheckItem(const string &name) {
@@ -78,8 +82,10 @@ void ShoppingList::uncheckItem(const string &name) {
 }
 
 void ShoppingList::uncheckItem(list<Item>::iterator &item) {
-    item->setBought(false);
-    boughtItemsQuantity--;
+    if (item != items.end()) {
+        item->setBought(false);
+        boughtItemsQuantity--;
+    }
 }
 
 list<Item>::iterator ShoppingList::getItem(const string &name) {
