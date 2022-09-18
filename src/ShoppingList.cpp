@@ -31,7 +31,7 @@ const list<Item> &ShoppingList::getItems() const {
     return items;
 }
 
-int ShoppingList::getBoughtItemsQuantity() const {
+int ShoppingList::getTotalBought() const {
     return boughtItemsQuantity;
 }
 

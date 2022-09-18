@@ -32,7 +32,7 @@ public:
 
     const list <Item> &getItems() const;
 
-    int getBoughtItemsQuantity() const;
+    int getTotalBought() const;
 
     const unordered_set<shared_ptr<User>> &getCollaborators() const;
 

@@ -14,7 +14,7 @@ MissingItemsBadge::~MissingItemsBadge() {
 }
 
 void MissingItemsBadge::update() {
-    int boughtItems = subject->getBoughtItemsQuantity();
+    int boughtItems = subject->getTotalBought();
     int totalItems = subject->getTotalItems();
     cout << boughtItems << "/" << totalItems;
 }
