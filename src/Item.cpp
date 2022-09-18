@@ -1,14 +1,14 @@
 
 #include "Item.h"
 
-Item::Item(const string &n, const string &d, unsigned int q, Category c) :
+Item::Item(const string &n, const string &d, unsigned int q, const string &c) :
         name(n), notes(d), quantity(q), category(c) {}
 
-Item::Item(const string &n, Category c) : Item(n, "", 1, c) {}
+Item::Item(const string &n, const string &c) : Item(n, "", 1, c) {}
 
-Item::Item(const string &n, const string &d, Category c) : Item(n, d, 1, c) {}
+Item::Item(const string &n, const string &d, const string &c) : Item(n, d, 1, c) {}
 
-Item::Item(const string &n, unsigned int q, Category c) : Item(n, "", q, c) {}
+Item::Item(const string &n, unsigned int q, const string &c) : Item(n, "", q, c) {}
 
 const string &Item::getName() const {
     return name;
@@ -34,11 +34,11 @@ void Item::setQuantity(unsigned int quantity) {
     Item::quantity = quantity;
 }
 
-Category Item::getCategory() const {
+string Item::getCategory() const {
     return category;
 }
 
-void Item::setCategory(Category category) {
+void Item::setCategory(const string &category) {
     Item::category = category;
 }
 
