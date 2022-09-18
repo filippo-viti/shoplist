@@ -19,7 +19,7 @@ void ShoppingListViewer::update() {
     display(items);
 }
 
-void ShoppingListViewer::display(list<Item> &items) const {
+void ShoppingListViewer::display(const list<Item> &items) const {
     cout << subject->getName() << ' ' << subject->getTotalBought() << '/' << subject->getTotalItems() << endl;
     for (auto &item: items) {
         cout << '\t' << item << endl;
