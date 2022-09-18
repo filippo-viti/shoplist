@@ -7,19 +7,17 @@
 
 class ShoppingList;
 
-using namespace std;
-
 class User {
 public:
-    explicit User(const string &username);
+    explicit User(const std::string &username);
 
-    const string &getUsername() const;
+    const std::string &getUsername() const;
 
-    void setUsername(const string &username);
+    void setUsername(const std::string &username);
 
 private:
     //TODO maybe add more information about the user
-    string username;
+    std::string username;
 };
 
 

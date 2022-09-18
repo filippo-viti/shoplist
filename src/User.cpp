@@ -1,11 +1,11 @@
 #include "User.h"
 
-User::User(const string &username) : username(username) {}
+User::User(const std::string &username) : username(username) {}
 
-const string &User::getUsername() const {
+const std::string &User::getUsername() const {
     return username;
 }
 
-void User::setUsername(const string &username) {
+void User::setUsername(const std::string &username) {
     User::username = username;
 }

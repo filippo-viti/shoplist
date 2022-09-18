@@ -13,12 +13,10 @@ class Item;
 
 class User;
 
-using namespace std;
-
 class ShoppingList : public Subject {
 
 public:
-    ShoppingList(const string &name, const User &creator);
+    ShoppingList(const std::string &name, const User &creator);
 
     void attach(Observer *o) override;
 
@@ -26,42 +24,42 @@ public:
 
     void notify() const override;
 
-    const string &getName() const;
+    const std::string &getName() const;
 
-    void setName(const string &name);
+    void setName(const std::string &name);
 
-    const list <Item> &getItems() const;
+    const std::list<Item> &getItems() const;
 
     int getTotalBought() const;
 
-    const unordered_set<shared_ptr<User>> &getCollaborators() const;
+    const std::unordered_set<std::shared_ptr<User>> &getCollaborators() const;
 
     void addItem(const Item &newItem);
 
-    void removeItem(const string &name);
+    void removeItem(const std::string &name);
 
-    void removeItem(list<Item>::iterator &item);
+    void removeItem(std::list<Item>::iterator &item);
 
-    void checkItem(const string &name);
+    void checkItem(const std::string &name);
 
-    void checkItem(list<Item>::iterator &item);
+    void checkItem(std::list<Item>::iterator &item);
 
-    void uncheckItem(const string &name);
+    void uncheckItem(const std::string &name);
 
-    void uncheckItem(list<Item>::iterator &item);
+    void uncheckItem(std::list<Item>::iterator &item);
 
-    list<Item>::iterator getItem(const string &name);
+    std::list<Item>::iterator getItem(const std::string &name);
 
     int getTotalItems() const;
 
     void addCollaborator(const User &user);
 
 private:
-    string name;
-    list <Item> items;
+    std::string name;
+    std::list<Item> items;
     int boughtItemsQuantity = 0;
-    list<Observer *> observers;
-    unordered_set<shared_ptr<User>> collaborators;
+    std::list<Observer *> observers;
+    std::unordered_set<std::shared_ptr<User>> collaborators;
 };
 
 

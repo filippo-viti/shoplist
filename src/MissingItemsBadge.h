@@ -12,14 +12,14 @@
 
 class MissingItemsBadge : public Observer {
 public:
-    explicit MissingItemsBadge(const shared_ptr<ShoppingList> &subject);
+    explicit MissingItemsBadge(const std::shared_ptr<ShoppingList> &subject);
 
     ~MissingItemsBadge() override;
 
     void update() override;
 
 private:
-    shared_ptr<ShoppingList> subject;
+    std::shared_ptr<ShoppingList> subject;
 };
 
 

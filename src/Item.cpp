@@ -1,28 +1,28 @@
 
 #include "Item.h"
 
-Item::Item(const string &n, const string &d, unsigned int q, const string &c) :
+Item::Item(const std::string &n, const std::string &d, unsigned int q, const std::string &c) :
         name(n), notes(d), quantity(q), category(c) {}
 
-Item::Item(const string &n, const string &c) : Item(n, "", 1, c) {}
+Item::Item(const std::string &n, const std::string &c) : Item(n, "", 1, c) {}
 
-Item::Item(const string &n, const string &d, const string &c) : Item(n, d, 1, c) {}
+Item::Item(const std::string &n, const std::string &d, const std::string &c) : Item(n, d, 1, c) {}
 
-Item::Item(const string &n, unsigned int q, const string &c) : Item(n, "", q, c) {}
+Item::Item(const std::string &n, unsigned int q, const std::string &c) : Item(n, "", q, c) {}
 
-const string &Item::getName() const {
+const std::string &Item::getName() const {
     return name;
 }
 
-void Item::setName(const string &name) {
+void Item::setName(const std::string &name) {
     Item::name = name;
 }
 
-const string &Item::getNotes() const {
+const std::string &Item::getNotes() const {
     return notes;
 }
 
-void Item::setNotes(const string &description) {
+void Item::setNotes(const std::string &description) {
     Item::notes = description;
 }
 
@@ -34,11 +34,11 @@ void Item::setQuantity(unsigned int quantity) {
     Item::quantity = quantity;
 }
 
-string Item::getCategory() const {
+std::string Item::getCategory() const {
     return category;
 }
 
-void Item::setCategory(const string &category) {
+void Item::setCategory(const std::string &category) {
     Item::category = category;
 }
 
@@ -50,7 +50,7 @@ void Item::setBought(bool bought) {
     Item::bought = bought;
 }
 
-ostream &operator<<(ostream &os, const Item &item) {
+std::ostream &operator<<(std::ostream &os, const Item &item) {
     os << "name: " << item.name << " notes: " << item.notes << " quantity: " << item.quantity << " category: "
        << item.category << " bought: " << (item.bought ? "X" : "O");
     return os;
