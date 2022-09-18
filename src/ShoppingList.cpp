@@ -25,6 +25,7 @@ const string &ShoppingList::getName() const {
 
 void ShoppingList::setName(const string &name) {
     ShoppingList::name = name;
+    notify();
 }
 
 const list<Item> &ShoppingList::getItems() const {
@@ -60,6 +61,7 @@ void ShoppingList::removeItem(list<Item>::iterator &item) {
             boughtItemsQuantity--;
         }
         items.erase(item);
+        notify();
     }   //TODO maybe throw exception?
 }
 
@@ -73,6 +75,7 @@ void ShoppingList::checkItem(list<Item>::iterator &item) {
     if (item != items.end()) {
         item->setBought(true);
         boughtItemsQuantity++;
+        notify();
     }
 }
 
@@ -85,6 +88,7 @@ void ShoppingList::uncheckItem(list<Item>::iterator &item) {
     if (item != items.end()) {
         item->setBought(false);
         boughtItemsQuantity--;
+        notify();
     }
 }
 
@@ -98,4 +102,5 @@ int ShoppingList::getTotalItems() const {
 
 void ShoppingList::addCollaborator(const User &user) {
     collaborators.insert(make_shared<User>(user));
+    notify();
 }
