@@ -5,7 +5,7 @@
 #include <iostream>
 #include "MissingItemsBadge.h"
 
-MissingItemsBadge::MissingItemsBadge(const std::shared_ptr<ShoppingList> &subject) : subject(subject) {
+MissingItemsBadge::MissingItemsBadge(ShoppingList *subject) : subject(subject) {
     subject->attach(this);
 }
 
