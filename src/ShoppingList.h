@@ -18,7 +18,7 @@ class ShoppingList : public Subject {
 public:
     ShoppingList();
 
-    ShoppingList(const std::string &name, const User &creator);
+    ShoppingList(const std::string &name, User *creator);
 
     void attach(Observer *o) override;
 
@@ -34,7 +34,7 @@ public:
 
     int getTotalBought() const;
 
-    const std::unordered_set<std::shared_ptr<User>> &getCollaborators() const;
+    const std::unordered_set<User *> &getCollaborators() const;
 
     void addItem(const Item &newItem);
 
@@ -54,14 +54,14 @@ public:
 
     int getTotalItems() const;
 
-    void addCollaborator(const User &user);
+    void addCollaborator(User *user);
 
 private:
     std::string name;
     std::list<Item> items;
     int boughtItemsQuantity = 0;
     std::list<Observer *> observers;
-    std::unordered_set<std::shared_ptr<User>> collaborators;
+    std::unordered_set<User *> collaborators;
 };
 
 

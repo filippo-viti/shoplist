@@ -1,8 +1,8 @@
 #include <algorithm>
 #include "ShoppingList.h"
 
-ShoppingList::ShoppingList(const std::string &name, const User &creator) : name(name) {
-    collaborators.insert(std::make_shared<User>(creator));
+ShoppingList::ShoppingList(const std::string &name, User *creator) : name(name) {
+    collaborators.insert(creator);
 }
 
 ShoppingList::ShoppingList() = default;
@@ -38,7 +38,7 @@ int ShoppingList::getTotalBought() const {
     return boughtItemsQuantity;
 }
 
-const std::unordered_set<std::shared_ptr<User>> &ShoppingList::getCollaborators() const {
+const std::unordered_set<User *> &ShoppingList::getCollaborators() const {
     return collaborators;
 }
 
@@ -96,14 +96,14 @@ void ShoppingList::uncheckItem(std::list<Item>::iterator &item) {
 
 std::list<Item>::iterator ShoppingList::getItem(const std::string &name) {
     return std::find_if(items.begin(), items.end(),
-                        [name](const Item &i) { return name == i.getName(); });
+                        [&name](const Item &i) { return name == i.getName(); });
 }
 
 int ShoppingList::getTotalItems() const {
     return int(items.size());
 }
 
-void ShoppingList::addCollaborator(const User &user) {
-    collaborators.insert(std::make_shared<User>(user));
+void ShoppingList::addCollaborator(User *user) {
+    collaborators.insert(user);
     notify();
 }
