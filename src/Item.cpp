@@ -52,6 +52,6 @@ void Item::setBought(bool bought) {
 
 std::ostream &operator<<(std::ostream &os, const Item &item) {
     os << "name: " << item.name << " notes: " << item.notes << " quantity: " << item.quantity << " category: "
-       << item.category << " bought: " << (item.bought ? "X" : "O");
+       << item.category << '|' << (item.bought ? "X" : "O") << '|';
     return os;
 }
