@@ -12,15 +12,14 @@
 
 class ShoppingListViewer : public Observer {
 public:
-    explicit ShoppingListViewer(const std::shared_ptr<ShoppingList> &subject);
+    explicit ShoppingListViewer(ShoppingList *subject);
 
     ~ShoppingListViewer() override;
 
     void update() override;
 
 private:
-    std::shared_ptr<ShoppingList> subject;
-
+    ShoppingList *subject;
     void display(const std::list<Item> &items) const;
 };
 

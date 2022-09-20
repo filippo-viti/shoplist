@@ -5,7 +5,7 @@
 #include <iostream>
 #include "ShoppingListViewer.h"
 
-ShoppingListViewer::ShoppingListViewer(const std::shared_ptr<ShoppingList> &subject) : subject(subject) {
+ShoppingListViewer::ShoppingListViewer(ShoppingList *subject) : subject(subject) {
     subject->attach(this);
 }
 
@@ -19,7 +19,7 @@ void ShoppingListViewer::update() {
 }
 
 void ShoppingListViewer::display(const std::list<Item> &items) const {
-    std::cout << subject->getName() << ' ' << subject->getTotalBought() << '/' << subject->getTotalItems() << std::endl;
+    std::cout << subject->getName() << ' ' << subject->getTotalBought() << '/' << subject->getTotalItems() << ' ';
     std::cout << "Users: ";
     for (const auto &user: subject->getCollaborators()) {
         std::cout << user->getUsername() << ' ';
