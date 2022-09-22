@@ -44,9 +44,10 @@ const std::unordered_set<User *> &ShoppingList::getCollaborators() const {
 
 void ShoppingList::addItem(const Item &newItem) {
     auto itemInList = getItem(newItem.getName());
-    if (itemInList == items.end()) {
-        items.push_back(newItem);
+    if (itemInList == items.end()) {    // check if getItem() has found newItem in the list
+        items.push_back(newItem);   // if the item is not already in the list, add it
     } else {
+        // if there is already an item with the same name, simply update the quantity
         itemInList->setQuantity(itemInList->getQuantity() + newItem.getQuantity());
     }
     notify();
@@ -94,6 +95,7 @@ void ShoppingList::uncheckItem(std::list<Item>::iterator &item) {
     }
 }
 
+// returns items.end() if there is no item with the given name
 std::list<Item>::iterator ShoppingList::getItem(const std::string &name) {
     return std::find_if(items.begin(), items.end(),
                         [&name](const Item &i) { return name == i.getName(); });
