@@ -35,7 +35,7 @@ const std::list<Item> &ShoppingList::getItems() const {
 }
 
 int ShoppingList::getTotalBought() const {
-    return boughtItemsQuantity;
+    return totalBought;
 }
 
 const std::unordered_set<User *> &ShoppingList::getCollaborators() const {
@@ -61,7 +61,7 @@ void ShoppingList::removeItem(const std::string &name) {
 void ShoppingList::removeItem(std::list<Item>::iterator &item) {
     if (item != items.end()) {  // erase() has undefined behavior when called on end()
         if (item->isBought()) {
-            boughtItemsQuantity--;
+            totalBought--;
         }
         items.erase(item);
         notify();
@@ -77,7 +77,7 @@ void ShoppingList::checkItem(const std::string &name) {
 void ShoppingList::checkItem(std::list<Item>::iterator &item) {
     if (item != items.end()) {
         item->setBought(true);
-        boughtItemsQuantity++;
+        totalBought++;
         notify();
     }
 }
@@ -90,7 +90,7 @@ void ShoppingList::uncheckItem(const std::string &name) {
 void ShoppingList::uncheckItem(std::list<Item>::iterator &item) {
     if (item != items.end()) {
         item->setBought(false);
-        boughtItemsQuantity--;
+        totalBought--;
         notify();
     }
 }

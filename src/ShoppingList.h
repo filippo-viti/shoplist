@@ -59,7 +59,7 @@ public:
 private:
     std::string name;
     std::list<Item> items;
-    int boughtItemsQuantity = 0;
+    int totalBought = 0;
     std::list<Observer *> observers;
     std::unordered_set<User *> collaborators;
 };
