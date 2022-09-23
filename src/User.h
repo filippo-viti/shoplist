@@ -16,7 +16,6 @@ public:
     void setUsername(const std::string &username);
 
 private:
-    //TODO maybe add more information about the user
     std::string username;
 };
 

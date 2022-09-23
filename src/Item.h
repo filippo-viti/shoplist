@@ -12,13 +12,8 @@ class Item {
 
 public:
 
-    Item(const std::string &n, const std::string &d, unsigned int q, const std::string &c);
-
-    Item(const std::string &n, const std::string &c);
-
-    Item(const std::string &n, const std::string &d, const std::string &c);
-
-    Item(const std::string &n, unsigned int q, const std::string &c);
+    explicit Item(const std::string &name, const std::string &category = "", unsigned int quantity = 1,
+                  const std::string &notes = "");
 
     const std::string &getName() const;
 
@@ -26,7 +21,7 @@ public:
 
     const std::string &getNotes() const;
 
-    void setNotes(const std::string &description);
+    void setNotes(const std::string &notes);
 
     unsigned int getQuantity() const;
 
@@ -45,8 +40,8 @@ public:
 private:
     std::string name;
     std::string notes;
-    unsigned int quantity = 1;
-    std::string category = "";   //we use string instead of enum to support custom categories
+    unsigned int quantity;
+    std::string category;   //we use string instead of enum to support custom categories
     bool bought = false;
 };
 

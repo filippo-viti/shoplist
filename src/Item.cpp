@@ -1,14 +1,8 @@
 
 #include "Item.h"
 
-Item::Item(const std::string &n, const std::string &d, unsigned int q, const std::string &c) :
-        name(n), notes(d), quantity(q), category(c) {}
-
-Item::Item(const std::string &n, const std::string &c) : Item(n, "", 1, c) {}
-
-Item::Item(const std::string &n, const std::string &d, const std::string &c) : Item(n, d, 1, c) {}
-
-Item::Item(const std::string &n, unsigned int q, const std::string &c) : Item(n, "", q, c) {}
+Item::Item(const std::string &name, const std::string &category, unsigned int quantity, const std::string &notes) :
+        name(name), category(category), quantity(quantity), notes(notes) {}
 
 const std::string &Item::getName() const {
     return name;
@@ -22,8 +16,8 @@ const std::string &Item::getNotes() const {
     return notes;
 }
 
-void Item::setNotes(const std::string &description) {
-    Item::notes = description;
+void Item::setNotes(const std::string &notes) {
+    Item::notes = notes;
 }
 
 unsigned int Item::getQuantity() const {
