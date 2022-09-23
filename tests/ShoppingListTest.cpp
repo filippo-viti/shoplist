@@ -55,6 +55,6 @@ TEST_F(ShoppingListTest, TotalItemsTest) {
 }
 
 TEST_F(ShoppingListTest, AddCollaboratorTest) {
-    l.addCollaborator(new User("Aldo Bagno"));
+    l.addCollaborator(new User("Aldo Baglio"));
     ASSERT_EQ(l.getCollaborators().size(), 2);
 }
