@@ -47,10 +47,11 @@ void ShoppingList::addItem(const Item &newItem) {
     if (itemInList == items.end()) {    // check if getItem() has found newItem in the list
         items.push_back(newItem);   // if the item is not already in the list, add it
     } else {
-        // if there is already an item with the same name, simply update the quantity
         if (itemInList->isBought()) {
+            // if there is already an item with the same name AND is already bought, replace it with the new item
             *itemInList = newItem;
         } else {
+            // if there is already an item with the same name which is not bought, simply update the quantity
             itemInList->setQuantity(itemInList->getQuantity() + newItem.getQuantity());
         }
     }
@@ -69,7 +70,7 @@ void ShoppingList::removeItem(std::list<Item>::iterator &item) {
         }
         items.erase(item);
         notify();
-    }   //TODO maybe throw exception?
+    }
 }
 
 void ShoppingList::checkItem(const std::string &name) {
