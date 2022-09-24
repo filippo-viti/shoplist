@@ -32,6 +32,7 @@ TEST_F(ShoppingListTest, AddItemAlreadyInListTest) {
     Item item("milk", "dairy", 2);
     l.addItem(item);
     ASSERT_EQ(l.getTotalItems(), 1);
+    ASSERT_EQ(l.getTotalBought(), 0);
     ASSERT_EQ(l.getItems().back().getName(), "milk");
     ASSERT_EQ(l.getItem("milk")->getQuantity(), 3);
     ASSERT_FALSE(l.getItem("milk")->isBought());
@@ -42,6 +43,7 @@ TEST_F(ShoppingListTest, AddItemAlreadyBoughtTest) {
     l.checkItem("milk");
     l.addItem(item);
     ASSERT_EQ(l.getTotalItems(), 1);
+    ASSERT_EQ(l.getTotalBought(), 0);
     ASSERT_EQ(l.getItems().back().getName(), "milk");
     ASSERT_EQ(l.getItem("milk")->getQuantity(), 2);
     ASSERT_FALSE(l.getItem("milk")->isBought());
@@ -56,12 +58,14 @@ TEST_F(ShoppingListTest, RemoveItemTest) {
 TEST_F(ShoppingListTest, CheckItemTest) {
     l.checkItem("milk");
     ASSERT_TRUE(l.getItem("milk")->isBought());
+    ASSERT_EQ(l.getTotalBought(), 1);
 }
 
 TEST_F(ShoppingListTest, UncheckItemTest) {
     l.checkItem("milk");
     l.uncheckItem("milk");
     ASSERT_FALSE(l.getItem("milk")->isBought());
+    ASSERT_EQ(l.getTotalBought(), 0);
 }
 
 TEST_F(ShoppingListTest, GetItemTest) {
