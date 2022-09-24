@@ -50,6 +50,7 @@ void ShoppingList::addItem(const Item &newItem) {
         if (itemInList->isBought()) {
             // if there is already an item with the same name AND is already bought, replace it with the new item
             *itemInList = newItem;
+            totalBought--;
         } else {
             // if there is already an item with the same name which is not bought, simply update the quantity
             itemInList->setQuantity(itemInList->getQuantity() + newItem.getQuantity());
